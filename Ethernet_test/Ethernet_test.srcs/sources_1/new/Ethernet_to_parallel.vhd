@@ -24,7 +24,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx leaf cells in this code.
@@ -34,13 +34,16 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity Ethernet_to_parallel is
   Port ( 
   
-        RX_minus:       in std_logic;
-        RX_plus:        in std_logic;
+        RX_minus:       in std_logic := '0';
+        RX_plus:        in std_logic := '0';
         
         sys_clock_80:   in std_logic;
         
-        clock_pulse:    out std_logic := '0';   
-        value_out:      out std_logic
+           
+        value_out:      out std_logic;
+        
+        
+        packet_value:   out std_logic_vector(511 downto 0) := "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
   );
 end Ethernet_to_parallel;
 
@@ -50,7 +53,9 @@ architecture Behavioral of Ethernet_to_parallel is
       signal    clock_count:    integer range 0 to 7 := 0;
       signal    RX_pulse:       std_logic := '0';
       signal    current_last:   std_logic;
-
+      signal    clock_pulse:    std_logic := '0';
+      signal    packet_value_buffer:   std_logic_vector(15 downto 0) := "0000000000000000";    
+      signal    packet_size:    integer range 0 to 16 := 0;   
 begin   
 
 RX_pulse <= RX_minus OR RX_plus;
@@ -110,10 +115,16 @@ process(RX_plus, RX_minus)
         current_last <= '0';
     end if;
 end process;
-    -- assigns last value to output on clock
+
+-- assigns last value to output on clock and adds it on clock
 process(clock_pulse)
     begin
-    value_out <= current_last;
+    if rising_edge(clock_pulse) then
+        value_out <= current_last;
+        packet_value_buffer(packet_size) <= current_last;
+        packet_size <= packet_size + 1;
+    end if;
+    
 end process;
 
 
