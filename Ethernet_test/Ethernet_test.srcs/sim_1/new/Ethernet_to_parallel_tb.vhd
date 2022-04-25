@@ -55,6 +55,15 @@ signal sys_clock_80_tb:   std_logic;
 signal value_out_tb:      std_logic;
 signal packet_value_tb:   std_logic_vector(511 downto 0) := "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
 
+signal    clock_sync:     integer range 0 to 8 := 8;
+signal    clock_latch:    std_logic := '0';
+signal    clock_count:    integer range 0 to 7 := 0;
+signal    RX_pulse:       std_logic := '0';
+signal    current_last:   std_logic;
+signal    clock_pulse:    std_logic := '0';
+signal    packet_value_buffer:   std_logic_vector(15 downto 0) := "0000000000000000";    
+signal    packet_size:    integer range 0 to 16 := 0;   
+
 begin
     dut: Ethernet_to_parallel
         port map(
@@ -68,7 +77,81 @@ begin
     simulation: process
     begin
     
+    
+    
     end process simulation;
+    
+      
+ 
+
+RX_pulse <= RX_minus_tb OR RX_plus_tb;
+
+
+-- 100nS clock
+process(sys_clock_80_tb)
+    begin
+    if rising_edge(sys_clock_80_tb) then
+        if(clock_count = 7) then
+            clock_count <= 0;
+        else
+            clock_count <= clock_count + 1 ;
+        end if;
+        if clock_count = clock_sync then
+            clock_pulse <= '1';
+        else
+            clock_pulse <= '0';
+        end if;
+    end if;
+end process;
+
+-- latching on connection and timeout
+process(clock_pulse, RX_pulse)
+    variable timeout:   integer range 0 to 2;
+    begin
+    if rising_edge(RX_pulse) then
+        if (clock_latch = '0') then
+            clock_latch <= '1';
+            if clock_count > 3 then
+                clock_sync <= clock_count - 4;
+            else
+                clock_sync <= clock_count + 4;
+            end if;
+        else
+            timeout := 0;
+        end if;
+    elsif rising_edge(clock_pulse) then
+        if clock_latch = '1' then
+        timeout := timeout + 1;
+        end if;
+    end if;
+    if timeout = 2 then
+        clock_latch <= '0';
+        clock_sync <= 8;
+        timeout := 0;
+    end if;
+end process;
+
+-- value detection
+    -- registers last value
+process(RX_plus_tb, RX_minus_tb)
+    begin
+    if rising_edge(RX_plus_tb) then
+        current_last <= '1';
+    elsif rising_edge(RX_minus_tb) then 
+        current_last <= '0';
+    end if;
+end process;
+
+-- assigns last value to output on clock and adds it on clock
+process(clock_pulse)
+    begin
+    if rising_edge(clock_pulse) then
+        value_out_tb <= current_last;
+        packet_value_buffer(packet_size) <= current_last;
+        packet_size <= packet_size + 1;
+    end if;
+    
+end process;
 
 
 end Behavioral;
