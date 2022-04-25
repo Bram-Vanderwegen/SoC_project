@@ -86,3 +86,5 @@ update_compile_order -fileset sim_1
 update_compile_order -fileset sim_1
 update_compile_order -fileset sim_1
 update_compile_order -fileset sim_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon Apr 25 22:20:45 2022...
