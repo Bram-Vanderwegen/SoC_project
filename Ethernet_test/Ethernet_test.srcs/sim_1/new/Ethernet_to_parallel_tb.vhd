@@ -37,6 +37,7 @@ end Ethernet_to_parallel_tb;
 
 architecture Behavioral of Ethernet_to_parallel_tb is
 
+-------------------COMPONENT----------------------------------------
 component Ethernet_to_parallel is
   Port ( 
         RX_minus:       in std_logic := '0';
@@ -47,11 +48,15 @@ component Ethernet_to_parallel is
   );
 end component;
 
+-------------------COMPONENT----------------------------------------
+
+-------------------TESTBENCH SIGNALS----------------------------------------
 constant TIME_DELTA: time := 10ns;
 
 signal RX_minus_tb:       std_logic := '0';
 signal RX_plus_tb:        std_logic := '0';
 signal sys_clock_80_tb:   std_logic;
+constant clk_period : time := 100ns;
 signal value_out_tb:      std_logic;
 signal packet_value_tb:   std_logic_vector(511 downto 0) := "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
 
@@ -64,7 +69,10 @@ signal    clock_pulse:    std_logic := '0';
 signal    packet_value_buffer:   std_logic_vector(15 downto 0) := "0000000000000000";    
 signal    packet_size:    integer range 0 to 16 := 0;   
 
+-------------------TESTBENCH SIGNALS----------------------------------------
 begin
+-------------------PORT MAPPING----------------------------------------
+--LINK COMPONENT IN & OUT TO TESTBENCH SIGNALS
     dut: Ethernet_to_parallel
         port map(
             RX_minus => RX_minus_tb,
@@ -73,17 +81,46 @@ begin
             value_out => value_out_tb,
             packet_value => packet_value_tb
         ); 
-    
-    simulation: process
-    begin
-    
-    
-    
-    end process simulation;
-    
-      
+        
+-------------------PORT MAPPING----------------------------------------
+
+-------------------SIMULATION----------------------------------------
+
+---VIRTUAL CLOCK 100ns 
+clk_process: process
+begin
+    sys_clock_80_tb <= '0';
+    wait for clk_period/2;
+    sys_clock_80_tb <= '1';
+    wait for clk_period/2;
+end process;
+
+--VIRTUAL RX SIMULATION
+-- RX+ (RX-PLUS)
+rx_plus_process: process
+begin
+    RX_plus_tb <= '0';
+    wait for 50ns;
+    RX_plus_tb <= '1';
+    wait for 50ns;
+end process;
+
+-- RX- (RX-MIN)
+rx_min_process: process
+begin
+    RX_minus_tb <= '0';
+    wait for 100ns;
+    RX_minus_tb <= '1';
+    wait for 100ns;
+end process;
+
+-- WHEN DONE -> SAVE CHANGES AND PRESS "RUN SIMULATION" AT THE LEFT HAND SIDE
+
+-------------------SIMULATION----------------------------------------     
  
 
+
+-------------------CODE PROJECT----------------------------------------
 RX_pulse <= RX_minus_tb OR RX_plus_tb;
 
 
@@ -153,5 +190,5 @@ process(clock_pulse)
     
 end process;
 
-
+-------------------CODE PROJECT----------------------------------------
 end Behavioral;
