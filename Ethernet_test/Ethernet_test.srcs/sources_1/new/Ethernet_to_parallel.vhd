@@ -104,9 +104,9 @@ end process;
 process(RX_plus, RX_minus)
     begin
     if rising_edge(RX_plus) then
-        current_last <= '1';
-    elsif rising_edge(RX_minus) then 
         current_last <= '0';
+    elsif rising_edge(RX_minus) then 
+        current_last <= '1';
     end if;
 end process;
 

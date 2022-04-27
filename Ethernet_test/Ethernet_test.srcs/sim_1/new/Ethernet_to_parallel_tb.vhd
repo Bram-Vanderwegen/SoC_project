@@ -56,7 +56,7 @@ constant TIME_DELTA: time := 10ns;
 signal RX_minus_tb:       std_logic := '0';
 signal RX_plus_tb:        std_logic := '0';
 signal sys_clock_80_tb:   std_logic;
-constant clk_period : time := 100ns;
+constant clk_period : time := 12.5ns;
 signal value_out_tb:      std_logic;
 signal packet_value_tb:   std_logic_vector(511 downto 0) := "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
 
@@ -100,8 +100,10 @@ end process;
 rx_plus_process: process
 begin
     RX_plus_tb <= '0';
-    wait for 50ns;
+    wait for 49ns;
     RX_plus_tb <= '1';
+    wait for 1ns;
+    RX_plus_tb <= '0';
     wait for 50ns;
 end process;
 
@@ -109,9 +111,9 @@ end process;
 rx_min_process: process
 begin
     RX_minus_tb <= '0';
-    wait for 100ns;
+    wait for 99ns;
     RX_minus_tb <= '1';
-    wait for 100ns;
+    wait for 1ns;
 end process;
 
 -- WHEN DONE -> SAVE CHANGES AND PRESS "RUN SIMULATION" AT THE LEFT HAND SIDE
@@ -173,9 +175,9 @@ end process;
 process(RX_plus_tb, RX_minus_tb)
     begin
     if rising_edge(RX_plus_tb) then
-        current_last <= '1';
-    elsif rising_edge(RX_minus_tb) then 
         current_last <= '0';
+    elsif rising_edge(RX_minus_tb) then 
+        current_last <= '1';
     end if;
 end process;
 
