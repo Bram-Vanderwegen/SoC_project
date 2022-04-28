@@ -27,6 +27,17 @@ Our project consist of anylysing an internet connection with the Pynq-z1. The ma
 
 With this picture we can analyse where the differences are and how the signal transfers the bits over the ethernet. We can also look for triggers and focus points for analyzing purposes.
 
+
+# Testbench
+
+![](photos/testbench_sim.png)
+
+We use a test packet to simulate the real packet coming from the connected ethernet cable. The simulation gives an overview of how the program handles with an incoming packet.
+
+TestBench uses an 12.5 GHZ clock
+
+
+
 # Our Team 
 
 - **Ivan Groffils** - _CONTRIBUTOR_ - [Ivan Groffils](https://github.com/ivangroffils)
