@@ -40,8 +40,9 @@ architecture Behavioral of Ethernet_to_parallel_tb is
 -------------------COMPONENT----------------------------------------
 component Ethernet_to_parallel is
   Port ( 
-        RX_minus:       in std_logic := '0';
         RX_plus:        in std_logic := '0';
+        RX_minus:       in std_logic := '0';
+        
         sys_clock_80:   in std_logic;
         value_out:      out std_logic;
         packet_value:   out std_logic_vector(511 downto 0) := "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
@@ -53,8 +54,9 @@ end component;
 -------------------TESTBENCH SIGNALS----------------------------------------
 constant TIME_DELTA: time := 10ns;
 
-signal RX_minus_tb:       std_logic := '0';
 signal RX_plus_tb:        std_logic := '0';
+signal RX_minus_tb:       std_logic := '0';
+
 signal sys_clock_80_tb:   std_logic;
 constant clk_period : time := 12.5ns;
 signal value_out_tb:      std_logic;
@@ -68,6 +70,9 @@ signal    current_last:   std_logic;
 signal    clock_pulse:    std_logic := '0';
 signal    packet_value_buffer:   std_logic_vector(15 downto 0) := "0000000000000000";    
 signal    packet_size:    integer range 0 to 16 := 0;   
+
+signal    test_packet:    std_logic_vector(15 downto 0) := "1001110010101111";
+signal    test_packet_position: integer range 0 to 16 := 0;
 
 -------------------TESTBENCH SIGNALS----------------------------------------
 begin
@@ -97,23 +102,58 @@ end process;
 
 --VIRTUAL RX SIMULATION
 -- RX+ (RX-PLUS)
-rx_plus_process: process
-begin
-    RX_plus_tb <= '0';
-    wait for 49ns;
-    RX_plus_tb <= '1';
-    wait for 1ns;
-    RX_plus_tb <= '0';
-    wait for 50ns;
-end process;
+--rx_plus_process: process
+--begin
+--    RX_plus_tb <= '0';
+--    wait for 49ns;
+--    RX_plus_tb <= '1';
+--    wait for 1ns;
+--    RX_plus_tb <= '0';
+--    wait for 50ns;
+--end process;
 
 -- RX- (RX-MIN)
-rx_min_process: process
+--rx_min_process: process
+--begin
+--    RX_minus_tb <= '0';
+--    wait for 99ns;
+--    RX_minus_tb <= '1';
+--    wait for 1ns;
+--end process;
+
+RX_decode_process:  process
 begin
-    RX_minus_tb <= '0';
-    wait for 99ns;
-    RX_minus_tb <= '1';
-    wait for 1ns;
+    if test_packet_position < 16 then
+        if test_packet_position = 0 then
+            RX_plus_tb <= '1';
+            wait for 1 ns;
+            RX_plus_tb <= '0';
+            wait for 19ns;
+        end if;
+        if test_packet(test_packet_position) = '1'  then
+            wait for 25ns;
+            RX_minus_tb <= '1';
+            wait for 1ns;
+            RX_minus_tb <= '0';
+            wait for 49ns;
+            RX_plus_tb <= '1';
+            wait for 1 ns;
+            RX_plus_tb <= '0';
+            wait for 23ns;
+        else
+            wait for 25ns;
+            RX_plus_tb <= '1';
+            wait for 1ns;
+            RX_plus_tb <= '0';
+            wait for 49ns;
+            RX_minus_tb <= '1';
+            wait for 1 ns;
+            RX_minus_tb <= '0';
+            wait for 23ns;
+        end if;
+        test_packet_position <= test_packet_position + 1;
+        wait for 1 ns;
+    end if;
 end process;
 
 -- WHEN DONE -> SAVE CHANGES AND PRESS "RUN SIMULATION" AT THE LEFT HAND SIDE
