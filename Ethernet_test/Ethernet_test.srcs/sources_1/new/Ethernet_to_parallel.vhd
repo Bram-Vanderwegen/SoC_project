@@ -38,7 +38,14 @@ entity Ethernet_to_parallel is
         
         sys_clock_80:   in std_logic;
         value_out:      out std_logic;
-        packet_value:   out std_logic_vector(511 downto 0) := "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        
+        packet_header_1_port_source: out std_logic_vector(15 downto 0);
+        packet_header_1_port_destination: out std_logic_vector(15 downto 0);
+        
+        packet_header_2_length: out std_logic_vector(15 downto 0);
+        packet_header_2_checksum: out std_logic_vector(15 downto 0);
+        
+        packet_payload:   out std_logic_vector(31 downto 0)
   );
 end Ethernet_to_parallel;
 
@@ -48,9 +55,11 @@ architecture Behavioral of Ethernet_to_parallel is
       signal    clock_count:    integer range 0 to 7 := 0;
       signal    RX_pulse:       std_logic := '0';
       signal    current_last:   std_logic;
-      signal    clock_pulse:    std_logic := '0';
-      signal    packet_value_buffer:   std_logic_vector(15 downto 0) := "0000000000000000";    
-      signal    packet_size:    integer range 0 to 16 := 0;   
+      signal    clock_pulse:    std_logic := '0';  
+      signal    packet_size:    integer range 0 to 95 := 0;  
+
+       
+      
 begin   
 
 RX_pulse <= RX_minus OR RX_plus;
@@ -116,11 +125,22 @@ process(clock_pulse)
     begin
     if rising_edge(clock_pulse) then
         value_out <= current_last;
-        packet_value_buffer(packet_size) <= current_last;
+        if (packet_size <= 16) then
+            packet_header_1_port_source(packet_size) <= current_last;
+        elsif ((packet_size > 16) AND (packet_size <= 32))then
+            packet_header_1_port_destination(packet_size) <= current_last;
+        elsif ((packet_size > 32) AND (packet_size <= 48))then
+            packet_header_2_length(packet_size) <= current_last;
+        elsif ((packet_size > 48) AND (packet_size <= 64))then
+            packet_header_2_checksum(packet_size) <= current_last;
+        elsif ((packet_size > 64) AND (packet_size <= 96))then
+            packet_payload(packet_size) <= current_last;
+        end if;
         packet_size <= packet_size + 1;
     end if;
     
 end process;
 
-
+-------------------CODE PROJECT----------------------------------------
 end Behavioral;
+

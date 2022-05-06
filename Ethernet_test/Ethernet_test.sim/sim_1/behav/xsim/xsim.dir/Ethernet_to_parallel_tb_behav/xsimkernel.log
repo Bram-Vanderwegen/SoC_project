@@ -1,7 +1,4 @@
-Running: xsim.dir/Ethernet_to_parallel_tb_behav/xsimk.exe -simmode gui -wdb Ethernet_to_parallel_tb_behav.wdb -simrunnum 0 -socket 55995
+Running: xsim.dir/Ethernet_to_parallel_tb_behav/xsimk.exe -simmode gui -wdb Ethernet_to_parallel_tb_behav.wdb -simrunnum 0 -socket 56045
 Design successfully loaded
-Design Loading Memory Usage: 7116 KB (Peak: 7116 KB)
-Design Loading CPU Usage: 15 ms
-Simulation completed
-Simulation Memory Usage: 7716 KB (Peak: 7716 KB)
-Simulation CPU Usage: 2202 ms
+Design Loading Memory Usage: 7312 KB (Peak: 7312 KB)
+Design Loading CPU Usage: 30 ms

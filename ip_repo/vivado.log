@@ -2,10 +2,10 @@
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Wed Apr 27 21:41:36 2022
-# Process ID: 28100
+# Start of session at: Thu May  5 11:35:56 2022
+# Process ID: 5140
 # Current directory: C:/Users/Gebruiker/Documents/Persoonlijk/PXL_GIT-21/SoC_project/ip_repo
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent15168 C:\Users\Gebruiker\Documents\Persoonlijk\PXL_GIT-21\SoC_project\ip_repo\edit_eFPGA_AXI_Core1_v1_0.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent4152 C:\Users\Gebruiker\Documents\Persoonlijk\PXL_GIT-21\SoC_project\ip_repo\edit_eFPGA_AXI_Core1_v1_0.xpr
 # Log file: C:/Users/Gebruiker/Documents/Persoonlijk/PXL_GIT-21/SoC_project/ip_repo/vivado.log
 # Journal file: C:/Users/Gebruiker/Documents/Persoonlijk/PXL_GIT-21/SoC_project/ip_repo\vivado.jou
 # Running On: ASPIRE7, OS: Windows, CPU Frequency: 2592 MHz, CPU Physical cores: 6, Host memory: 34182 MB
@@ -74,10 +74,7 @@ Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Gebruiker/Documents/Persoonlijk/PXL_GIT-21/SoC_project/ip_repo/eFPGA_AXI_Core1_1.0'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2021.2/data/ip'.
-open_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:06 . Memory (MB): peak = 1598.918 ; gain = 0.000
-update_compile_order -fileset sources_1
-add_files -norecurse C:/Users/Gebruiker/Documents/Persoonlijk/PXL_GIT-21/SoC_project/Ethernet_test/Ethernet_test.srcs/sources_1/new/Ethernet_to_parallel.vhd
-update_compile_order -fileset sources_1
+open_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:06 . Memory (MB): peak = 1613.059 ; gain = 0.000
 update_compile_order -fileset sources_1
 exit
-INFO: [Common 17-206] Exiting Vivado at Wed Apr 27 22:05:04 2022...
+INFO: [Common 17-206] Exiting Vivado at Thu May  5 12:14:51 2022...

@@ -1,2 +1,2 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Github_Clones/SoC_project/Ethernet_test/Ethernet_test.srcs/sim_1/new/Ethernet_to_parallel_tb.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'Ethernet_to_parallel_tb'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Gebruiker/Documents/Persoonlijk/PXL_GIT-21/SoC_project/Ethernet_test/Ethernet_test.ip_user_files/bd/design_1/sim/design_1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'design_1'

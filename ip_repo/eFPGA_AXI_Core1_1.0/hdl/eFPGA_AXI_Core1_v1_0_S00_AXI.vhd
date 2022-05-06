@@ -407,7 +407,7 @@ begin
 	
 	Core1: Ethernet_to_parallel
       port map ( 
-            RX_minus => slv_reg0;
+            RX_minus => slv_reg0(0);
             RX_plus:        in std_logic := '0';
             sys_clock_80:   in std_logic;
             value_out:      out std_logic;
