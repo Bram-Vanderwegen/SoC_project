@@ -41,47 +41,45 @@ architecture Behavioral of Ethernet_to_parallel_tb is
 component Ethernet_to_parallel is
   Port ( 
         RX_plus:        in std_logic := '0';
-        RX_minus:       in std_logic := '0';
         
-        sys_clock_80:   in std_logic;
-        value_out:      out std_logic;
-  
-        packet_header_1_port_source: out std_logic_vector(15 downto 0);
-        packet_header_1_port_destination: out std_logic_vector(15 downto 0);
+        sys_clock_8x:   in std_logic;
+        value_out:      out std_logic := '0';
         
-        packet_header_2_length: out std_logic_vector(15 downto 0);
-        packet_header_2_checksum: out std_logic_vector(15 downto 0);
+        packet_header_1_port_source: out std_logic_vector(0 to 15);
+        packet_header_1_port_destination: out std_logic_vector(0 to 15);
         
-        packet_payload:   out std_logic_vector(31 downto 0)
+        packet_header_2_length: out std_logic_vector(0 to 15);
+        packet_header_2_checksum: out std_logic_vector(0 to 15);
+        
+        packet_payload:   out std_logic_vector(0 to 31)
   );
 end component;
 
 -------------------COMPONENT----------------------------------------
 
 -------------------TESTBENCH SIGNALS----------------------------------------
-constant TIME_DELTA: time := 10ns;
+constant TIME_DELTA: time := 12.5ns;
 
 signal RX_plus_tb:        std_logic := '0';
-signal RX_minus_tb:       std_logic := '0';
 
-signal sys_clock_80_tb:   std_logic;
-constant clk_period : time := 12.5ns;
-signal value_out_tb:      std_logic;
+signal sys_clock_8x_tb:   std_logic;
+signal value_out_tb:      std_logic := '0';
 
+signal iteration:  integer := 0;
 
-signal packet_header_1_port_source_tb: std_logic_vector(15 downto 0);
-signal packet_header_1_port_destination_tb: std_logic_vector(15 downto 0);
+signal packet_header_1_port_source_tb: std_logic_vector(0 to 15);
+signal packet_header_1_port_destination_tb: std_logic_vector(0 to 15);
 
-signal packet_header_2_length_tb: std_logic_vector(15 downto 0);
-signal packet_header_2_checksum_tb: std_logic_vector(15 downto 0);
+signal packet_header_2_length_tb: std_logic_vector(0 to 15);
+signal packet_header_2_checksum_tb: std_logic_vector(0 to 15);
 
-signal packet_payload_tb: std_logic_vector(31 downto 0);
-
-signal    iteration: integer := 0;
+signal packet_payload_tb: std_logic_vector(0 to 31);
 
 
-signal    rx_plus: std_logic_vector(95 downto 0) := "011000011010100101100001111011011000000011100111001000011000101101101000011001010111100100100000";
-signal    rx_min: std_logic_vector(95 downto 0)  := "100111100101011010011110000100100111111100011000110111100111010010010111100110101000011011011111";
+
+signal rx_plus_test: std_logic_vector(0 to 191) := "100101101010100101100110011010011001011010101001010101100101100101101010101010100101011010010101101001101010100101101010011001011001011001101010100101101001100110010101011010011010011010101010";
+
+--RX-PLUS 011000011010100101100001111011011000000011100111001000011000101101101000011001010111100100100000
 
 -------------------TESTBENCH SIGNALS----------------------------------------
 begin
@@ -89,9 +87,8 @@ begin
 --LINK COMPONENT IN & OUT TO TESTBENCH SIGNALS
     dut: Ethernet_to_parallel
         port map(
-            RX_minus => RX_minus_tb,
             RX_plus => RX_plus_tb,
-            sys_clock_80 => sys_clock_80_tb,
+            sys_clock_8x => sys_clock_8x_tb,
             value_out => value_out_tb,
             packet_header_1_port_source => packet_header_1_port_source_tb,
             packet_header_1_port_destination => packet_header_1_port_destination_tb,
@@ -105,29 +102,21 @@ begin
 -------------------SIMULATION----------------------------------------
 
 ---VIRTUAL CLOCK 100ns 
-clk_process: process
+simulation: process
 begin
-    sys_clock_80_tb <= '0';
-    wait for clk_period/2;
-    sys_clock_80_tb <= '1';
-    wait for clk_period/2;
+    sys_clock_8x_tb <= '0';
+    wait for TIME_DELTA/2;
+    sys_clock_8x_tb <= '1';
+    wait for TIME_DELTA/2;
 end process;
 
 
 
-RX_decode_process:  process
+simulation_process:  process
 begin
-    if rising_edge(sys_clock_80_tb) then
-        if iteration <= 96 then
-          RX_plus_tb <= rx_plus(iteration);
-          wait for 15ns;
-          RX_minus_tb <= rx_min(iteration);
-          wait for 12ns;
-          iteration <= iteration + 1;
-        elsif iteration > 96 then
-          iteration <= 0;
-        end if;
-     end if;
- 
+    for I in 0 to 191 loop 
+          RX_plus_tb <= rx_plus_test(I);
+          wait for 50ns;
+    end loop;
 end process;
 end Behavioral;

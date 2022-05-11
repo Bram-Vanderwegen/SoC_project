@@ -1,0 +1,44 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.625",
+   "Default View_TopLeft":"-91,-166",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port DDR -pg 1 -lvl 5 -x 1530 -y -90 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -lvl 5 -x 1530 -y -60 -defaultsOSRD
+preplace port port-id_RX_plus_0 -pg 1 -lvl 0 -x -50 -y 30 -defaultsOSRD
+preplace port port-id_sys_clock_8x_0 -pg 1 -lvl 0 -x -50 -y 60 -defaultsOSRD
+preplace port port-id_value_out_0 -pg 1 -lvl 5 -x 1530 -y -30 -defaultsOSRD
+preplace portBus packet_header_1_port_source_0 -pg 1 -lvl 5 -x 1530 -y 0 -defaultsOSRD
+preplace portBus packet_header_1_port_destination_0 -pg 1 -lvl 5 -x 1530 -y 30 -defaultsOSRD
+preplace portBus packet_header_2_length_0 -pg 1 -lvl 5 -x 1530 -y 60 -defaultsOSRD
+preplace portBus packet_header_2_checksum_0 -pg 1 -lvl 5 -x 1530 -y 170 -defaultsOSRD
+preplace portBus packet_payload_0 -pg 1 -lvl 5 -x 1530 -y 110 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 2 -x 590 -y 0 -defaultsOSRD
+preplace inst Ethernet_FPGA_Custom_0 -pg 1 -lvl 1 -x 180 -y 60 -defaultsOSRD
+preplace inst ps7_0_axi_periph -pg 1 -lvl 4 -x 1340 -y -170 -defaultsOSRD
+preplace inst rst_ps7_0_100M -pg 1 -lvl 3 -x 960 -y 70 -defaultsOSRD
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 4 -20 -50 400 -120 780 -120 1150
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 2 1 N 50
+preplace netloc rst_ps7_0_100M_peripheral_aresetn 1 0 4 -20 210 NJ 210 NJ 210 1170
+preplace netloc RX_plus_0_1 1 0 1 -30 30n
+preplace netloc sys_clock_8x_0_1 1 0 1 N 60
+preplace netloc Ethernet_FPGA_Custom_0_value_out 1 1 4 390J -130 NJ -130 1140J -20 1510J
+preplace netloc Ethernet_FPGA_Custom_0_packet_header_1_port_source 1 1 4 380J -140 NJ -140 1160J 0 NJ
+preplace netloc Ethernet_FPGA_Custom_0_packet_header_1_port_destination 1 1 4 400J 170 NJ 170 1150J 30 NJ
+preplace netloc Ethernet_FPGA_Custom_0_packet_header_2_length 1 1 4 390J 190 NJ 190 1180J 60 NJ
+preplace netloc Ethernet_FPGA_Custom_0_packet_header_2_checksum 1 1 4 380J 180 780J 200 NJ 200 1510J
+preplace netloc Ethernet_FPGA_Custom_0_packet_payload 1 1 4 NJ 110 790J 180 NJ 180 1490J
+preplace netloc processing_system7_0_DDR 1 2 3 NJ -50 N -50 1490
+preplace netloc processing_system7_0_FIXED_IO 1 2 3 NJ -30 N -30 1500
+preplace netloc processing_system7_0_M_AXI_GP0 1 2 2 790 -230 NJ
+preplace netloc ps7_0_axi_periph_M00_AXI 1 0 5 -30 -110 NJ -110 NJ -110 1130J -40 1480
+levelinfo -pg 1 -50 180 590 960 1340 1530
+pagesize -pg 1 -db -bbox -sgen -190 -290 1850 310
+"
+}
+{
+   "da_axi4_cnt":"1",
+   "da_ps7_cnt":"1"
+}

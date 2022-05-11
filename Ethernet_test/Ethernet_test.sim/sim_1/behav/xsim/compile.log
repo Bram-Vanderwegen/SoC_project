@@ -1,8 +1,2 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Gebruiker/Documents/Persoonlijk/PXL_GIT-21/SoC_project/Ethernet_test/Ethernet_test.ip_user_files/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_clk_wiz.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module design_1_clk_wiz_0_0_clk_wiz
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Gebruiker/Documents/Persoonlijk/PXL_GIT-21/SoC_project/Ethernet_test/Ethernet_test.ip_user_files/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module design_1_clk_wiz_0_0
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/Gebruiker/Documents/Persoonlijk/PXL_GIT-21/SoC_project/Ethernet_test/Ethernet_test.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module glbl
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Gebruiker/Documents/Persoonlijk/PXL_GIT-21/SoC_project/Ethernet_test/Ethernet_test.ip_user_files/bd/design_1/sim/design_1.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'design_1'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Gebruiker/Documents/Persoonlijk/PXL_GIT-21/SoC_project/Ethernet_test/Ethernet_test.srcs/sources_1/new/Ethernet_to_parallel.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Ethernet_to_parallel'
