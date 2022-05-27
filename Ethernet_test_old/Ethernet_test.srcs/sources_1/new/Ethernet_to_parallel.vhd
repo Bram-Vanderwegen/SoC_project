@@ -34,6 +34,7 @@ use IEEE.NUMERIC_STD.ALL;
 entity Ethernet_to_parallel is
   Port ( 
         RX_plus:        in std_logic := '0';
+<<<<<<< HEAD:Ethernet_test_old/Ethernet_test.srcs/sources_1/new/Ethernet_to_parallel.vhd
         
         
         sys_clock_80:   in std_logic;
@@ -44,10 +45,24 @@ entity Ethernet_to_parallel is
         test_latch:     out std_logic;
         test_pramble:   out std_logic;
         test_current_last:  out std_logic
+=======
+        
+        sys_clock_8x:   in std_logic;
+        value_out:      out std_logic := '0';
+        
+        packet_header_1_port_source: out std_logic_vector(0 to 15);
+        packet_header_1_port_destination: out std_logic_vector(0 to 15);
+        
+        packet_header_2_length: out std_logic_vector(0 to 15);
+        packet_header_2_checksum: out std_logic_vector(0 to 15);
+        
+        packet_payload:   out std_logic_vector(0 to 31)
+>>>>>>> main:Ethernet_test/Ethernet_test.srcs/sources_1/new/Ethernet_to_parallel.vhd
   );
 end Ethernet_to_parallel;
 
 architecture Behavioral of Ethernet_to_parallel is
+<<<<<<< HEAD:Ethernet_test_old/Ethernet_test.srcs/sources_1/new/Ethernet_to_parallel.vhd
       signal    RX_minus:       std_logic := '0';
       signal    clock_sync:     integer range 0 to 8 := 8;
       signal    clock_data_latch:    std_logic := '0';
@@ -68,11 +83,30 @@ RX_minus <= NOT RX_plus;
 test_rx_out <= RX_plus;
 test_latch <= clock_data_latch;
 test_pramble <= clock_preamble_latch;
+=======
+      signal    clock_sync:     integer range 0 to 7 := 7;
+      signal    clock_latch:    std_logic := '0';
+      signal    clock_count:    integer range 0 to 7 := 0;
+      signal    current_last_one:   std_logic;
+      signal    current_last_two:   std_logic;
+      signal    current_last:       std_logic;
+      signal delayTime: time := 0ns;
+      signal full_packet: std_logic_vector(0 to 95);
+      signal    clock_pulse:    std_logic := '0';  
+      signal    packet_index:    integer range 0 to 95 := 0;  
+
+       
+      
+begin   
+
+
+
+>>>>>>> main:Ethernet_test/Ethernet_test.srcs/sources_1/new/Ethernet_to_parallel.vhd
 
 -- 100nS clock
-process(sys_clock_80)
+process(sys_clock_8x)
     begin
-    if rising_edge(sys_clock_80) then
+    if rising_edge(sys_clock_8x) then
         if(clock_count = 7) then
             clock_count <= 0;
         else
@@ -91,6 +125,7 @@ process(clock_pulse, RX_plus)
     variable timeout:   integer range 0 to 2;
     begin
     if rising_edge(RX_plus) then
+<<<<<<< HEAD:Ethernet_test_old/Ethernet_test.srcs/sources_1/new/Ethernet_to_parallel.vhd
         if (clock_preamble_latch = '0' AND clock_data_latch = '0') then
             clock_preamble_latch <= '1';
 --            if clock_count > 3 then
@@ -99,6 +134,15 @@ process(clock_pulse, RX_plus)
 --                clock_sync <= clock_count + 4;
 --            end if;
             clock_sync <= clock_count;
+=======
+        if (clock_latch = '0') then
+            clock_latch <= '1';
+            if clock_count > 3 then
+                clock_sync <= clock_count - 4;
+            else
+                clock_sync <= clock_count + 4;
+            end if;
+>>>>>>> main:Ethernet_test/Ethernet_test.srcs/sources_1/new/Ethernet_to_parallel.vhd
         else
             timeout := 0;
         end if;
@@ -109,10 +153,15 @@ process(clock_pulse, RX_plus)
         end if;
     end if;
     if timeout = 2 then
+<<<<<<< HEAD:Ethernet_test_old/Ethernet_test.srcs/sources_1/new/Ethernet_to_parallel.vhd
         clock_data_latch <= '0';
         preamble_start_buffer <= "00";
         clock_preamble_latch <= '0';
         clock_sync <= 8;
+=======
+        clock_latch <= '0';
+        clock_sync <= 7;
+>>>>>>> main:Ethernet_test/Ethernet_test.srcs/sources_1/new/Ethernet_to_parallel.vhd
         timeout := 0;
     end if;
     if rising_edge(clock_pulse) then
@@ -128,14 +177,22 @@ end process;
 
 -- value detection
     -- registers last value
-process(RX_plus, RX_minus)
+process(RX_plus)
     begin
+<<<<<<< HEAD:Ethernet_test_old/Ethernet_test.srcs/sources_1/new/Ethernet_to_parallel.vhd
     if rising_edge(RX_plus) then
         current_last <= '0';
     end if;
     if rising_edge(RX_minus) then
         current_last <= '1';
     end if;
+=======
+         if rising_edge(RX_plus) then
+            current_last <= '1';
+         elsif falling_edge(RX_plus) then
+            current_last <= '0';
+         end if;
+>>>>>>> main:Ethernet_test/Ethernet_test.srcs/sources_1/new/Ethernet_to_parallel.vhd
 end process;
 
 test_current_last <= current_last;
@@ -144,11 +201,27 @@ process(clock_pulse)
     begin
     if rising_edge(clock_pulse) AND clock_data_latch = '1' AND packet_size < 33 then
         value_out <= current_last;
-        packet_value_buffer(packet_size) <= current_last;
-        packet_size <= packet_size + 1;
+        if(packet_index < 96) then
+            full_packet(packet_index) <= current_last;
+            if (packet_index <= 15) then
+                packet_header_1_port_source <= full_packet(0 to 15);
+            elsif ((packet_index > 15) AND (packet_index <= 31))then
+                packet_header_1_port_destination <= full_packet(16 to 31);
+            elsif ((packet_index > 31) AND (packet_index <= 47))then
+                packet_header_2_length <= full_packet(32 to 47);
+            elsif ((packet_index > 47) AND (packet_index <= 63))then
+                packet_header_2_checksum <= full_packet(48 to 63);
+            elsif ((packet_index > 63) AND (packet_index <= 95))then
+                packet_payload <= full_packet(64 to 95);
+            end if;
+            packet_index <= packet_index + 1;
+            end if;
     end if;
     
 end process;
 
-
+-------------------CODE PROJECT----------------------------------------
 end Behavioral;
+    
+
+

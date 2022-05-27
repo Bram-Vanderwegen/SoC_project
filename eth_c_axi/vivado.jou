@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Thu May 12 13:47:29 2022
+# Process ID: 40844
+# Current directory: C:/GIT/SoC_project/eth_c_axi
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent31868 C:\GIT\SoC_project\eth_c_axi\eth_c_axi.xpr
+# Log file: C:/GIT/SoC_project/eth_c_axi/vivado.log
+# Journal file: C:/GIT/SoC_project/eth_c_axi\vivado.jou
+# Running On: ASPIRE7, OS: Windows, CPU Frequency: 2592 MHz, CPU Physical cores: 6, Host memory: 34182 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/GIT/SoC_project/eth_c_axi/eth_c_axi.xpr

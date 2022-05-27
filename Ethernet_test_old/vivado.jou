@@ -2,14 +2,14 @@
 # Vivado v2021.2 (64-bit)
 # SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
 # IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
-# Start of session at: Wed Apr 27 21:37:18 2022
-# Process ID: 6492
-# Current directory: C:/Users/Gebruiker/Documents/Persoonlijk/PXL_GIT-21/SoC_project/Ethernet_test
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent15880 C:\Users\Gebruiker\Documents\Persoonlijk\PXL_GIT-21\SoC_project\Ethernet_test\Ethernet_test.xpr
-# Log file: C:/Users/Gebruiker/Documents/Persoonlijk/PXL_GIT-21/SoC_project/Ethernet_test/vivado.log
-# Journal file: C:/Users/Gebruiker/Documents/Persoonlijk/PXL_GIT-21/SoC_project/Ethernet_test\vivado.jou
+# Start of session at: Thu May 12 12:30:56 2022
+# Process ID: 30028
+# Current directory: C:/GIT/SoC_project/Ethernet_test
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent21756 C:\GIT\SoC_project\Ethernet_test\Ethernet_test.xpr
+# Log file: C:/GIT/SoC_project/Ethernet_test/vivado.log
+# Journal file: C:/GIT/SoC_project/Ethernet_test\vivado.jou
 # Running On: ASPIRE7, OS: Windows, CPU Frequency: 2592 MHz, CPU Physical cores: 6, Host memory: 34182 MB
 #-----------------------------------------------------------
 start_gui
-open_project C:/Users/Gebruiker/Documents/Persoonlijk/PXL_GIT-21/SoC_project/Ethernet_test/Ethernet_test.xpr
+open_project C:/GIT/SoC_project/Ethernet_test/Ethernet_test.xpr
 update_compile_order -fileset sources_1

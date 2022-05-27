@@ -56,6 +56,9 @@
 !*.xdc
 #TCL - files
 !*.tcl
+!*.pdf
+!*.zip
+!*.png
 #Journal - files
 !*.jou
 #Reports
