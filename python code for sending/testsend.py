@@ -1,5 +1,6 @@
-from socket import *
+import socket
+print(socket.__file__)
 
-s = socket(AF_INET, SOCK_RAW)
+s = socket(AF_CAN, SOCK_RAW)
 s.bind(("eth1", 0))
 s.send("5")

@@ -1,0 +1,28 @@
+// Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+// --------------------------------------------------------------------------------
+// Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+// Date        : Sun May 22 13:31:07 2022
+// Host        : PF2B54TC running 64-bit major release  (build 9200)
+// Command     : write_verilog -force -mode synth_stub
+//               c:/Github_Clones/SoC_project/Ethernet_test/Ethernet_test.gen/sources_1/bd/design_1/ip/design_1_Ethernet_to_parallel_0_0/design_1_Ethernet_to_parallel_0_0_stub.v
+// Design      : design_1_Ethernet_to_parallel_0_0
+// Purpose     : Stub declaration of top-level module interface
+// Device      : xc7z020clg400-1
+// --------------------------------------------------------------------------------
+
+// This empty module with port declaration file causes synthesis tools to infer a black box for IP.
+// The synthesis directives are for Synopsys Synplify support to prevent IO buffer insertion.
+// Please paste the declaration into a Verilog source file or add the file as an additional source.
+(* x_core_info = "Ethernet_to_parallel,Vivado 2021.2" *)
+module design_1_Ethernet_to_parallel_0_0(RX_plus, sys_clock_80, value_out, packet_value, 
+  test_rx_out, test_latch, test_pramble, test_current_last)
+/* synthesis syn_black_box black_box_pad_pin="RX_plus,sys_clock_80,value_out,packet_value[511:0],test_rx_out,test_latch,test_pramble,test_current_last" */;
+  input RX_plus;
+  input sys_clock_80;
+  output value_out;
+  output [511:0]packet_value;
+  output test_rx_out;
+  output test_latch;
+  output test_pramble;
+  output test_current_last;
+endmodule

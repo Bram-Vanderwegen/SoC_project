@@ -1,0 +1,3 @@
+C:/Github_Clones/SoC_project/python code for sending/build-ethernet_c-Desktop_Qt_6_1_3_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+C:/Github_Clones/SoC_project/python code for sending/build-ethernet_c-Desktop_Qt_6_1_3_MinGW_64_bit-Debug/CMakeFiles/ethernet_c.dir
+C:/Github_Clones/SoC_project/python code for sending/build-ethernet_c-Desktop_Qt_6_1_3_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir

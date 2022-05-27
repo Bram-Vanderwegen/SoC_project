@@ -1,0 +1,13 @@
+set_property PACKAGE_PIN W14 [get_ports RX_plus_0]
+set_property PACKAGE_PIN Y18 [get_ports test_latch_0]
+set_property PACKAGE_PIN Y19 [get_ports test_pramble_0]
+set_property PACKAGE_PIN Y16 [get_ports test_rx_out_0]
+set_property PACKAGE_PIN Y17 [get_ports value_out_0]
+set_property IOSTANDARD LVCMOS33 [get_ports RX_plus_0]
+set_property IOSTANDARD LVCMOS33 [get_ports test_latch_0]
+set_property IOSTANDARD LVCMOS33 [get_ports test_pramble_0]
+set_property IOSTANDARD LVCMOS33 [get_ports test_rx_out_0]
+set_property IOSTANDARD LVCMOS33 [get_ports value_out_0]
+
+set_property PACKAGE_PIN U18 [get_ports test_current_last_0]
+set_property IOSTANDARD LVCMOS33 [get_ports test_current_last_0]

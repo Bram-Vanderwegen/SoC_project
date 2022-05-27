@@ -1,0 +1,330 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Sun May 22 13:30:26 2022
+# Process ID: 18588
+# Current directory: C:/Github_Clones/SoC_project/Ethernet_test/Ethernet_test.runs/design_1_Ethernet_to_parallel_0_0_synth_1
+# Command line: vivado.exe -log design_1_Ethernet_to_parallel_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_Ethernet_to_parallel_0_0.tcl
+# Log file: C:/Github_Clones/SoC_project/Ethernet_test/Ethernet_test.runs/design_1_Ethernet_to_parallel_0_0_synth_1/design_1_Ethernet_to_parallel_0_0.vds
+# Journal file: C:/Github_Clones/SoC_project/Ethernet_test/Ethernet_test.runs/design_1_Ethernet_to_parallel_0_0_synth_1\vivado.jou
+# Running On: PF2B54TC, OS: Windows, CPU Frequency: 2112 MHz, CPU Physical cores: 4, Host memory: 16918 MB
+#-----------------------------------------------------------
+source design_1_Ethernet_to_parallel_0_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Github_Clones/SoC_project/ip_repo/eFPGA_AXI_Core1_1.0'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2021.2/data/ip'.
+Command: synth_design -top design_1_Ethernet_to_parallel_0_0 -part xc7z020clg400-1 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg400-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 12180
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1242.957 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'design_1_Ethernet_to_parallel_0_0' [c:/Github_Clones/SoC_project/Ethernet_test/Ethernet_test.gen/sources_1/bd/design_1/ip/design_1_Ethernet_to_parallel_0_0/synth/design_1_Ethernet_to_parallel_0_0.vhd:69]
+INFO: [Synth 8-3491] module 'Ethernet_to_parallel' declared at 'C:/Github_Clones/SoC_project/Ethernet_test/Ethernet_test.srcs/sources_1/new/Ethernet_to_parallel.vhd:34' bound to instance 'U0' of component 'Ethernet_to_parallel' [c:/Github_Clones/SoC_project/Ethernet_test/Ethernet_test.gen/sources_1/bd/design_1/ip/design_1_Ethernet_to_parallel_0_0/synth/design_1_Ethernet_to_parallel_0_0.vhd:93]
+INFO: [Synth 8-638] synthesizing module 'Ethernet_to_parallel' [C:/Github_Clones/SoC_project/Ethernet_test/Ethernet_test.srcs/sources_1/new/Ethernet_to_parallel.vhd:50]
+WARNING: [Synth 8-614] signal 'preamble_start_buffer' is read in the process but is not in the sensitivity list [C:/Github_Clones/SoC_project/Ethernet_test/Ethernet_test.srcs/sources_1/new/Ethernet_to_parallel.vhd:90]
+WARNING: [Synth 8-614] signal 'packet_size' is read in the process but is not in the sensitivity list [C:/Github_Clones/SoC_project/Ethernet_test/Ethernet_test.srcs/sources_1/new/Ethernet_to_parallel.vhd:143]
+WARNING: [Synth 8-614] signal 'clock_data_latch' is read in the process but is not in the sensitivity list [C:/Github_Clones/SoC_project/Ethernet_test/Ethernet_test.srcs/sources_1/new/Ethernet_to_parallel.vhd:143]
+WARNING: [Synth 8-6014] Unused sequential element current_last_reg was removed.  [C:/Github_Clones/SoC_project/Ethernet_test/Ethernet_test.srcs/sources_1/new/Ethernet_to_parallel.vhd:120]
+WARNING: [Synth 8-6014] Unused sequential element packet_value_buffer_reg was removed.  [C:/Github_Clones/SoC_project/Ethernet_test/Ethernet_test.srcs/sources_1/new/Ethernet_to_parallel.vhd:147]
+WARNING: [Synth 8-6014] Unused sequential element packet_size_reg was removed.  [C:/Github_Clones/SoC_project/Ethernet_test/Ethernet_test.srcs/sources_1/new/Ethernet_to_parallel.vhd:145]
+WARNING: [Synth 8-5787] Register timeout_reg in module Ethernet_to_parallel is clocked by two different clocks in the same process. This may cause simulation mismatches and synthesis errors. Consider using different process statements  [C:/Github_Clones/SoC_project/Ethernet_test/Ethernet_test.srcs/sources_1/new/Ethernet_to_parallel.vhd:103]
+WARNING: [Synth 8-5787] Register timeout_reg in module Ethernet_to_parallel is clocked by two different clocks in the same process. This may cause simulation mismatches and synthesis errors. Consider using different process statements  [C:/Github_Clones/SoC_project/Ethernet_test/Ethernet_test.srcs/sources_1/new/Ethernet_to_parallel.vhd:103]
+INFO: [Synth 8-256] done synthesizing module 'Ethernet_to_parallel' (1#1) [C:/Github_Clones/SoC_project/Ethernet_test/Ethernet_test.srcs/sources_1/new/Ethernet_to_parallel.vhd:50]
+INFO: [Synth 8-256] done synthesizing module 'design_1_Ethernet_to_parallel_0_0' (2#1) [c:/Github_Clones/SoC_project/Ethernet_test/Ethernet_test.gen/sources_1/bd/design_1/ip/design_1_Ethernet_to_parallel_0_0/synth/design_1_Ethernet_to_parallel_0_0.vhd:69]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1242.957 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1242.957 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1242.957 ; gain = 0.000
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1242.957 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1242.957 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.023 . Memory (MB): peak = 1242.957 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1242.957 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1242.957 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1242.957 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1242.957 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input    3 Bit       Adders := 1     
+	   2 Input    2 Bit       Adders := 1     
++---Registers : 
+	                4 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 3     
+	                1 Bit    Registers := 5     
++---Muxes : 
+	   2 Input    3 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[511] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[510] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[509] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[508] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[507] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[506] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[505] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[504] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[503] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[502] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[501] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[500] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[499] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[498] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[497] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[496] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[495] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[494] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[493] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[492] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[491] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[490] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[489] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[488] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[487] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[486] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[485] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[484] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[483] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[482] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[481] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[480] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[479] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[478] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[477] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[476] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[475] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[474] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[473] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[472] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[471] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[470] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[469] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[468] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[467] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[466] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[465] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[464] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[463] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[462] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[461] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[460] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[459] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[458] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[457] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[456] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[455] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[454] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[453] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[452] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[451] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[450] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[449] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[448] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[447] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[446] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[445] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[444] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[443] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[442] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[441] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[440] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[439] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[438] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[437] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[436] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[435] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[434] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[433] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[432] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[431] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[430] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[429] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[428] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[427] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[426] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[425] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[424] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[423] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[422] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[421] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[420] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[419] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[418] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[417] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[416] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[415] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[414] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[413] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Ethernet_to_parallel_0_0 has port packet_value[412] driven by constant 0
+INFO: [Common 17-14] Message 'Synth 8-3917' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1242.957 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1242.957 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1242.957 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 1242.957 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 1242.957 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 1242.957 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 1242.957 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 1242.957 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 1242.957 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 1242.957 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |LUT1 |     1|
+|2     |LUT2 |     5|
+|3     |LUT3 |     5|
+|4     |LUT6 |     1|
+|5     |FDCE |     6|
+|6     |FDPE |     1|
+|7     |FDRE |     9|
++------+-----+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 1242.957 ; gain = 0.000
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:00:27 . Memory (MB): peak = 1242.957 ; gain = 0.000
+Synthesis Optimization Complete : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1242.957 ; gain = 0.000
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1249.824 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1262.324 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete, checksum: dba711b6
+INFO: [Common 17-83] Releasing license: Synthesis
+121 Infos, 9 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:33 ; elapsed = 00:00:34 . Memory (MB): peak = 1262.324 ; gain = 19.367
+INFO: [Common 17-1381] The checkpoint 'C:/Github_Clones/SoC_project/Ethernet_test/Ethernet_test.runs/design_1_Ethernet_to_parallel_0_0_synth_1/design_1_Ethernet_to_parallel_0_0.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_Ethernet_to_parallel_0_0, cache-ID = 808a0d8a352de6ad
+INFO: [Common 17-1381] The checkpoint 'C:/Github_Clones/SoC_project/Ethernet_test/Ethernet_test.runs/design_1_Ethernet_to_parallel_0_0_synth_1/design_1_Ethernet_to_parallel_0_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file design_1_Ethernet_to_parallel_0_0_utilization_synth.rpt -pb design_1_Ethernet_to_parallel_0_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun May 22 13:31:07 2022...

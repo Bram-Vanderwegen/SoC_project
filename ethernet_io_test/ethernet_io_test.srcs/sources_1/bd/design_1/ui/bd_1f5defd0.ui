@@ -1,0 +1,27 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-351,-149",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port port-id_value_in_0 -pg 1 -lvl 0 -x -10 -y 40 -defaultsOSRD
+preplace port port-id_value_out_0 -pg 1 -lvl 3 -x 510 -y 60 -defaultsOSRD
+preplace port port-id_last_val_out_0 -pg 1 -lvl 3 -x 510 -y 80 -defaultsOSRD
+preplace port port-id_clock_out_0 -pg 1 -lvl 3 -x 510 -y 120 -defaultsOSRD
+preplace port port-id_latch_out_0 -pg 1 -lvl 3 -x 510 -y 100 -defaultsOSRD
+preplace port port-id_clk_in1_0 -pg 1 -lvl 0 -x -10 -y 100 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 1 -x 110 -y 100 -defaultsOSRD
+preplace inst Main_0 -pg 1 -lvl 2 -x 350 -y 90 -defaultsOSRD
+preplace netloc Main_0_clock_out 1 2 1 NJ 120
+preplace netloc Main_0_last_val_out 1 2 1 NJ 80
+preplace netloc Main_0_latch_out 1 2 1 NJ 100
+preplace netloc Main_0_value_out 1 2 1 NJ 60
+preplace netloc clk_in1_0_1 1 0 1 N 100
+preplace netloc clk_wiz_0_clk_out1 1 1 1 NJ 100
+preplace netloc value_in_0_1 1 0 2 NJ 40 200J
+levelinfo -pg 1 -10 110 350 510
+pagesize -pg 1 -db -bbox -sgen -130 0 660 180
+"
+}
+0

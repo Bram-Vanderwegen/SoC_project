@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Sun May 22 13:31:09 2022
+# Process ID: 11684
+# Current directory: C:/Github_Clones/SoC_project/Ethernet_test/Ethernet_test.runs/synth_1
+# Command line: vivado.exe -log design_1_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_wrapper.tcl
+# Log file: C:/Github_Clones/SoC_project/Ethernet_test/Ethernet_test.runs/synth_1/design_1_wrapper.vds
+# Journal file: C:/Github_Clones/SoC_project/Ethernet_test/Ethernet_test.runs/synth_1\vivado.jou
+# Running On: PF2B54TC, OS: Windows, CPU Frequency: 2112 MHz, CPU Physical cores: 4, Host memory: 16918 MB
+#-----------------------------------------------------------
+source design_1_wrapper.tcl -notrace

@@ -1,0 +1,196 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0xB03C2175D87C3181",
+      "device": "xc7z020clg400-1",
+      "gen_directory": "../../../../Ethernet_test.gen/sources_1/bd/design_1",
+      "name": "design_1",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2021.2",
+      "validated": "true"
+    },
+    "design_tree": {
+      "clk_wiz_0": "",
+      "Ethernet_to_parallel_0": ""
+    },
+    "ports": {
+      "sys_clock": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "design_1_sys_clock",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "125000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0"
+          }
+        }
+      },
+      "RX_plus_0": {
+        "direction": "I"
+      },
+      "value_out_0": {
+        "direction": "O"
+      },
+      "test_rx_out_0": {
+        "direction": "O"
+      },
+      "test_latch_0": {
+        "direction": "O"
+      },
+      "test_pramble_0": {
+        "direction": "O"
+      },
+      "test_current_last_0": {
+        "direction": "O"
+      }
+    },
+    "components": {
+      "clk_wiz_0": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "design_1_clk_wiz_0_0",
+        "xci_path": "ip\\design_1_clk_wiz_0_0\\design_1_clk_wiz_0_0.xci",
+        "inst_hier_path": "clk_wiz_0",
+        "parameters": {
+          "CLKOUT1_JITTER": {
+            "value": "130.375"
+          },
+          "CLKOUT1_REQUESTED_OUT_FREQ": {
+            "value": "80"
+          },
+          "CLK_IN1_BOARD_INTERFACE": {
+            "value": "sys_clock"
+          },
+          "MMCM_CLKOUT0_DIVIDE_F": {
+            "value": "12.500"
+          },
+          "USE_BOARD_FLOW": {
+            "value": "true"
+          },
+          "USE_LOCKED": {
+            "value": "false"
+          },
+          "USE_RESET": {
+            "value": "false"
+          }
+        }
+      },
+      "Ethernet_to_parallel_0": {
+        "vlnv": "xilinx.com:module_ref:Ethernet_to_parallel:1.0",
+        "xci_name": "design_1_Ethernet_to_parallel_0_0",
+        "xci_path": "ip\\design_1_Ethernet_to_parallel_0_0\\design_1_Ethernet_to_parallel_0_0.xci",
+        "inst_hier_path": "Ethernet_to_parallel_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Ethernet_to_parallel",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "RX_plus": {
+            "direction": "I"
+          },
+          "sys_clock_80": {
+            "direction": "I",
+            "parameters": {
+              "FREQ_HZ": {
+                "value": "80000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              },
+              "CLK_DOMAIN": {
+                "value": "/clk_wiz_0_clk_out1",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "value_out": {
+            "direction": "O"
+          },
+          "packet_value": {
+            "direction": "O",
+            "left": "511",
+            "right": "0"
+          },
+          "test_rx_out": {
+            "direction": "O"
+          },
+          "test_latch": {
+            "direction": "O"
+          },
+          "test_pramble": {
+            "direction": "O"
+          },
+          "test_current_last": {
+            "direction": "O"
+          }
+        }
+      }
+    },
+    "nets": {
+      "Ethernet_to_parallel_0_test_current_last": {
+        "ports": [
+          "Ethernet_to_parallel_0/test_current_last",
+          "test_current_last_0"
+        ]
+      },
+      "Ethernet_to_parallel_0_test_latch": {
+        "ports": [
+          "Ethernet_to_parallel_0/test_latch",
+          "test_latch_0"
+        ]
+      },
+      "Ethernet_to_parallel_0_test_pramble": {
+        "ports": [
+          "Ethernet_to_parallel_0/test_pramble",
+          "test_pramble_0"
+        ]
+      },
+      "Ethernet_to_parallel_0_test_rx_out": {
+        "ports": [
+          "Ethernet_to_parallel_0/test_rx_out",
+          "test_rx_out_0"
+        ]
+      },
+      "Ethernet_to_parallel_0_value_out": {
+        "ports": [
+          "Ethernet_to_parallel_0/value_out",
+          "value_out_0"
+        ]
+      },
+      "RX_plus_0_1": {
+        "ports": [
+          "RX_plus_0",
+          "Ethernet_to_parallel_0/RX_plus"
+        ]
+      },
+      "clk_wiz_0_clk_out1": {
+        "ports": [
+          "clk_wiz_0/clk_out1",
+          "Ethernet_to_parallel_0/sys_clock_80"
+        ]
+      },
+      "sys_clock_1": {
+        "ports": [
+          "sys_clock",
+          "clk_wiz_0/clk_in1"
+        ]
+      }
+    }
+  }
+}
